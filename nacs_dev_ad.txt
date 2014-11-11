@@ -1,9 +1,10 @@
 [DCInstall]
 ReplicaOrNewDomain=Domain
 NewDomain=Forest
-NewDomainDNSName=dc.nacs.dev
+NewDomainDNSName=nacs.dev
 ForestLevel=4
-DomainNetbiosName=dc
+DomainNetbiosName=nacs
+Password=
 DomainLevel=4
 InstallDNS=Yes
 ConfirmGc=Yes
@@ -12,4 +13,4 @@ DatabasePath="C:\Windows\NTDS"
 LogPath="C:\Windows\NTDS"
 SYSVOLPath="C:\Windows\SYSVOL"
 SafeModeAdminPassword=
-RebootOnCompletion=Yes
+RebootOnCompletion=No
