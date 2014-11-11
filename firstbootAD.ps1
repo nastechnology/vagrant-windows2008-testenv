@@ -6,7 +6,8 @@ Add-WindowsFeature AD-Domain-Services,ADDS-Domain-Controller
 #Create an unattend.txt file to automate the DCPROMO process
 $unattend = "c:\unattend.txt"
 if(!(test-path $unattend)) { new-item $unattend -type file }
-    $content = @(
+
+$content = @(
     "[DCInstall]"
     "ReplicaOrNewDomain=Domain"
     "NewDomain=Forest"
@@ -23,8 +24,12 @@ if(!(test-path $unattend)) { new-item $unattend -type file }
     'SafeModeAdminPassword="T2Gt1wU70!"'
     "RebootOnCompletion=Yes"
 )
-$content | out-file $unattend
+
+#out-file -filepath $unattend -inputobject $content
+write-outpu $content | out-file $unattend
+
 $dcpromo = "dcpromo /unattend:$unattend"
+
 # Create Admin user
 New-ADUser nasadmin -givenanem NACS -surname admin -AccountPassword (ConvertTo-SecureString "T2Gt1wU70!" -AsPlainText -force) -enabled $true
 
