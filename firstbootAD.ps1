@@ -7,5 +7,4 @@ $dcpromo = "dcpromo /unattend:C:\vagrant\nacs_dev_ad.txt"
 
 invoke-expression -command $dcpromo
 
-
-
+invoke-expression C:\vagrant\installChocolatey.ps1
